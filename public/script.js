@@ -53,7 +53,7 @@ fetch('/newspapers')
       const newspaperElement = document.createElement('div');
 const formattedDate = new Date(newspaper.date).toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 newspaperElement.innerHTML = `<a onmousedown="
-localStorage.setItem('newspaperUrl', '${newspaper.url.replace('view?usp=sharing','preview')}');
+localStorage.setItem('newspaperUrl', '${newspaper.url}');
 localStorage.setItem('newspaperTitle', '${newspaper.title}');
 localStorage.setItem('newspaperDate', '${formattedDate}');
 localStorage.setItem('newspaperDescription', '${newspaper.description}');
@@ -69,7 +69,7 @@ window.location.href = '/viewPaper/index.html';
 document.getElementById('newspaperForm').addEventListener('submit', async (event) => {
   event.preventDefault();
   const title = document.getElementById('titleInput').value;
-  const url = document.getElementById('urlInput').value;
+  const url = document.getElementById('urlInput').value.replace('view?usp=sharing','preview');
   const description = document.getElementById('description').value;
   const newNewspaper = { title, url, description };
   try {
