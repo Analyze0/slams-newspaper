@@ -53,7 +53,7 @@ fetch('/newspapers')
       const newspaperElement = document.createElement('div');
 const formattedDate = new Date(newspaper.date).toLocaleString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 newspaperElement.innerHTML = `<a onmousedown="
-localStorage.setItem('newspaperUrl', '${newspaper.url}');
+localStorage.setItem('newspaperUrl', '${newspaper.url.replace('view?usp=sharing','preview')}');
 localStorage.setItem('newspaperTitle', '${newspaper.title}');
 localStorage.setItem('newspaperDate', '${formattedDate}');
 localStorage.setItem('newspaperDescription', '${newspaper.description}');
