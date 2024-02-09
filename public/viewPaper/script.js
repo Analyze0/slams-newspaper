@@ -1,4 +1,4 @@
-document.getElementById('newspaperView').src = localStorage.getItem('newspaperUrl');
+document.getElementById('newspaperView').src = localStorage.getItem('newspaperUrl').replace('view?usp=sharing', 'preview');
 
 document.getElementById('title').innerHTML = localStorage.getItem('newspaperTitle');
 document.getElementById('description').innerHTML = localStorage.getItem('newspaperDescription');
